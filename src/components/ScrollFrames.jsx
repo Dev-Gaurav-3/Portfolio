@@ -19,8 +19,7 @@ const preloadImages = async () => {
     });
 
     images.push(img);
-
-    // console.log(`Loaded ${i}/${frameCount}`);
+    console.log(`Loaded ${i}/${frameCount}`);
   }
 
   return images;
@@ -93,7 +92,7 @@ export default function ScrollFrames() {
         setImages(loadedImages);
         setIsLoaded(true);
 
-        // console.log('ALL FRAMES LOADED');
+        console.log('ALL FRAMES LOADED');
       } catch (error) {
         console.error('Failed to load frames:', error);
       }
