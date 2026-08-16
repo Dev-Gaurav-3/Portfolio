@@ -3,18 +3,34 @@ import { useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 
 const frameCount = 120;
 
-const INITIAL_BATCH = 10;
-const BATCH_SIZE = 10;
+const preloadImages = async () => {
+  const images = [];
+
+  for (let i = 1; i <= frameCount; i++) {
+    const index = i.toString().padStart(3, '0');
+
+    const img = new Image();
+
+    img.src = `${import.meta.env.BASE_URL}frames/frame_${index}.jpg`;
+
+    await new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+
+    images.push(img);
+
+    // console.log(`Loaded ${i}/${frameCount}`);
+  }
+
+  return images;
+};
 
 export default function ScrollFrames() {
   const canvasRef = useRef(null);
 
   const [images, setImages] = useState([]);
-  const [loadedCount, setLoadedCount] = useState(0);
-  const [isFirstFrameLoaded, setIsFirstFrameLoaded] = useState(false);
-
-  const loadingRef = useRef(new Set());
-  const imagesRef = useRef([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const { scrollYProgress } = useScroll();
 
@@ -24,93 +40,24 @@ export default function ScrollFrames() {
     [0, frameCount - 1]
   );
 
-  /*
-   * Load a single frame
-   */
-  const loadFrame = (index) => {
-    if (index < 0 || index >= frameCount) return;
-
-    // Already loaded or currently loading
-    if (imagesRef.current[index] || loadingRef.current.has(index)) {
-      return;
-    }
-
-    loadingRef.current.add(index);
-
-    const img = new Image();
-
-    const frameNumber = index + 1;
-    const paddedIndex = frameNumber.toString().padStart(3, '0');
-
-    img.src = `${import.meta.env.BASE_URL}frames/frame_${paddedIndex}.jpg`;
-
-    img.onload = () => {
-      imagesRef.current[index] = img;
-
-      loadingRef.current.delete(index);
-
-      setImages([...imagesRef.current]);
-      setLoadedCount((count) => count + 1);
-
-      console.log(
-        `Loaded frame ${frameNumber}/${frameCount}`
-      );
-
-      // Frame 1 is ready → show the animation immediately
-      if (index === 0) {
-        setIsFirstFrameLoaded(true);
-      }
-    };
-
-    img.onerror = () => {
-      loadingRef.current.delete(index);
-
-      console.error(
-        `Failed to load frame ${frameNumber}`
-      );
-    };
-  };
-
-  /*
-   * Load a batch of frames
-   */
-  const loadBatch = (startIndex, count = BATCH_SIZE) => {
-    const endIndex = Math.min(
-      startIndex + count,
-      frameCount
-    );
-
-    for (let i = startIndex; i < endIndex; i++) {
-      loadFrame(i);
-    }
-  };
-
-  /*
-   * Draw frame on canvas
-   */
   const drawFrame = (index) => {
+    if (!canvasRef.current || !images.length || !isLoaded) return;
+
     const canvas = canvasRef.current;
-
-    if (!canvas) return;
-
-    const image = imagesRef.current[index];
-
-    if (!image || !image.complete || image.naturalWidth === 0) {
-      return;
-    }
-
     const context = canvas.getContext('2d');
+    const image = images[index];
+
+    if (!image || !image.complete || image.naturalWidth === 0) return;
 
     const hRatio = canvas.width / image.width;
     const vRatio = canvas.height / image.height;
 
-    // 5% zoom to crop edges
     const ratio = Math.max(hRatio, vRatio) * 1.05;
 
-    const centerShiftX =
+    const centerShift_x =
       (canvas.width - image.width * ratio) / 2;
 
-    const centerShiftY =
+    const centerShift_y =
       (canvas.height - image.height * ratio) / 2;
 
     context.clearRect(
@@ -126,84 +73,55 @@ export default function ScrollFrames() {
       0,
       image.width,
       image.height,
-      centerShiftX,
-      centerShiftY,
+      centerShift_x,
+      centerShift_y,
       image.width * ratio,
       image.height * ratio
     );
   };
 
-  /*
-   * Initial loading
-   *
-   * Frame 1 gets highest priority.
-   * Then frames 2-10 are loaded.
-   */
+  // Preload all frames
   useEffect(() => {
-    loadFrame(0);
+    let cancelled = false;
 
-    loadBatch(1, INITIAL_BATCH - 1);
+    const loadImages = async () => {
+      try {
+        const loadedImages = await preloadImages();
+
+        if (cancelled) return;
+
+        setImages(loadedImages);
+        setIsLoaded(true);
+
+        // console.log('ALL FRAMES LOADED');
+      } catch (error) {
+        console.error('Failed to load frames:', error);
+      }
+    };
+
+    loadImages();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  /*
-   * Load more frames as the user scrolls.
-   */
+  // Update frame according to scroll
   useMotionValueEvent(frameIndex, 'change', (latest) => {
-    const currentFrame = Math.round(latest);
-
-    /*
-     * Load the current frame immediately.
-     */
-    loadFrame(currentFrame);
-
-    /*
-     * Preload a few frames ahead.
-     */
-    for (
-      let i = currentFrame + 1;
-      i <= currentFrame + 5;
-      i++
-    ) {
-      loadFrame(i);
-    }
-
-    /*
-     * Load the next batch when approaching
-     * the end of the currently loaded range.
-     */
-    const nextBatchStart =
-      Math.floor(currentFrame / BATCH_SIZE) * BATCH_SIZE;
-
-    loadBatch(nextBatchStart, BATCH_SIZE);
+    drawFrame(Math.round(latest));
   });
 
-  /*
-   * Draw the current frame whenever:
-   *
-   * - scroll changes
-   * - a new image loads
-   */
-  useEffect(() => {
-    const unsubscribe = frameIndex.on('change', (latest) => {
-      drawFrame(Math.round(latest));
-    });
-
-    return unsubscribe;
-  }, []);
-
-  /*
-   * Canvas resize
-   */
+  // Canvas resize
   useEffect(() => {
     const handleResize = () => {
-      const canvas = canvasRef.current;
+      if (!canvasRef.current) return;
 
-      if (!canvas) return;
+      canvasRef.current.width = window.innerWidth;
+      canvasRef.current.height = window.innerHeight;
 
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      drawFrame(Math.round(frameIndex.get()));
+      if (isLoaded) {
+        drawFrame(Math.round(frameIndex.get()));
+      }
     };
 
     handleResize();
@@ -213,16 +131,14 @@ export default function ScrollFrames() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [isLoaded, images]);
 
-  /*
-   * Draw frame 1 as soon as it loads.
-   */
+  // Initial frame
   useEffect(() => {
-    if (isFirstFrameLoaded) {
-      drawFrame(0);
+    if (isLoaded && images.length === frameCount) {
+      drawFrame(Math.round(frameIndex.get()));
     }
-  }, [isFirstFrameLoaded]);
+  }, [isLoaded, images]);
 
   return (
     <div className="fixed inset-0 w-full h-screen overflow-hidden flex items-center justify-center z-[-2] pointer-events-none">
