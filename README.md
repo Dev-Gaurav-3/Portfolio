@@ -1,19 +1,32 @@
-# ✦ Portfolio
 <div align="center">
-<pre>
+
+```
+
        ██████╗  █████╗ ██╗   ██╗██████╗  █████╗ ██╗   ██╗
       ██╔════╝ ██╔══██╗██║   ██║██╔══██╗██╔══██╗██║   ██║
       ██║  ███╗███████║██║   ██║██████╔╝███████║██║   ██║
       ██║   ██║██╔══██║██║   ██║██╔══██╗██╔══██║╚██╗ ██╔╝
      ╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║ ╚████╔╝
-     ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝
-<pre>
-<div>
-> A modern personal developer portfolio created through an AI-assisted development workflow using **Google Antigravity, Google Flow, ChatGPT, and prompt engineering**.
+      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝
+
+```
+
+# ✦ Portfolio
+
+*A modern personal developer portfolio built through an AI-assisted development workflow using **Google Antigravity, Google Flow, ChatGPT**, and prompt engineering.*
+
+[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-8A2BE2?style=for-the-badge)](https://dev-gaurav-3.github.io/Portfolio/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](#)
+
+</div>
+
+---
 
 ## 🌐 Live Portfolio
 
-**[View Portfolio](https://dev-gaurav-3.github.io/Portfolio/)**
+**[→ View Portfolio](https://dev-gaurav-3.github.io/Portfolio/)**
 
 ---
 
@@ -21,7 +34,7 @@
 
 This repository contains my personal developer portfolio, built to showcase my **projects, technical skills, achievements, education, experience, and development journey**.
 
-The portfolio was created using a combination of modern frontend technologies and AI-assisted development tools. The project explores how **human creativity, prompt engineering, generative AI, and frontend development** can be combined to build a complete interactive web experience.
+It was created using a combination of modern frontend technologies and AI-assisted development tools. The project explores how **human creativity, prompt engineering, generative AI, and frontend development** can be combined to build a complete, interactive web experience.
 
 ---
 
@@ -29,56 +42,18 @@ The portfolio was created using a combination of modern frontend technologies an
 
 AI played an important role throughout the design and development of this portfolio.
 
-### 🎨 Visual Frames — Google Flow
+| Tool | Role |
+|---|---|
+| 🎨 **Google Flow** | Generated the cinematic visual frames used for scroll-driven animations and transitions |
+| 🖼️ **ChatGPT** | Processed my personal photograph, extracted frames from generated visuals, and prepared image assets |
+| 💻 **Google Antigravity** | Powered the AI-assisted coding workflow — React components, UI, layout, animations, styling, debugging, and refinement |
+| 🧠 **Prompt Engineering** | Guided every stage of the process through iterative prompting and refinement |
 
-The cinematic visual frames used in the portfolio were generated using **Google Flow**.
-
-These frames were created specifically for the visual experience of the website and integrated into the portfolio to create scroll-driven animations and transitions.
-
-### 🖼️ Image & Frame Extraction — ChatGPT
-
-**ChatGPT** was used for image-related tasks, including:
-
-- Processing my personal photograph
-- Extracting frames from generated visual content
-- Preparing image assets for the website
-- Assisting with image processing and refinement
-
-### 💻 Frontend Development — Google Antigravity
-
-The frontend was developed using **Google Antigravity** through an AI-assisted coding workflow.
-
-It was used throughout the development process for:
-
-- React component development
-- UI implementation
-- Layout and responsiveness
-- Animations and interactions
-- Styling
-- Debugging
-- Code refinement
-- Iterative improvements
-
-### 🧠 Prompt Engineering
-
-Prompt engineering was an important part of the overall workflow.
-
-The development process followed an iterative cycle:
+### 🧠 The Iterative Workflow
 
 ```text
-Idea
-  ↓
-Prompt
-  ↓
-AI-generated concept
-  ↓
-Implementation
-  ↓
-Testing
-  ↓
-Feedback & Refinement
-  ↓
-Final Experience
+Idea → Prompt → AI-generated concept → Implementation
+     → Testing → Feedback & Refinement → Final Experience
 ```
 
 Rather than relying on a single generated output, the portfolio was developed through **continuous prompting, experimentation, testing, and refinement**.
@@ -87,32 +62,45 @@ Rather than relying on a single generated output, the portfolio was developed th
 
 ## 🛠️ Tech Stack
 
-### Frontend
+<table>
+<tr>
+<td valign="top">
 
-- **React**
-- **Vite**
-- **JavaScript**
-- **Tailwind CSS**
-- **CSS**
+**Frontend**
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- CSS
 
-### Libraries
+</td>
+<td valign="top">
 
-- **Framer Motion** — animations and transitions
-- **Lenis** — smooth scrolling
-- **Lucide React** — icons
+**Libraries**
+- Framer Motion — animations & transitions
+- Lenis — smooth scrolling
+- Lucide React — icons
 
-### Development & Deployment
+</td>
+<td valign="top">
 
+**Dev & Deployment**
 - Git
 - GitHub
 - GitHub Pages
 
-### AI Tools
+</td>
+<td valign="top">
 
-- **ChatGPT**
-- **Google Antigravity**
-- **Google Flow**
+**AI Tools**
+- ChatGPT
+- Google Antigravity
+- Google Flow
 - Prompt Engineering
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -128,7 +116,7 @@ Rather than relying on a single generated output, the portfolio was developed th
 - 🗂️ Structured portfolio data
 - ⚡ Vite-powered development
 - 🎨 Modern UI with animations
-- 🚀 Deployed using GitHub Pages
+- 🚀 Deployed via GitHub Pages
 
 ---
 
@@ -193,35 +181,28 @@ Portfolio/
 
 ## ⚡ Getting Started
 
-### 1. Clone the repository
-
+**1. Clone the repository**
 ```bash
 git clone https://github.com/dev-gaurav-3/Portfolio.git
 cd Portfolio
 ```
 
-### 2. Install dependencies
-
+**2. Install dependencies**
 ```bash
 npm install
 ```
 
-### 3. Start the development server
-
+**3. Start the development server**
 ```bash
 npm run dev
 ```
 
-The development server will start locally.
-
-### 4. Build for production
-
+**4. Build for production**
 ```bash
 npm run build
 ```
 
-### 5. Preview the production build
-
+**5. Preview the production build**
 ```bash
 npm run preview
 ```
@@ -230,11 +211,9 @@ npm run preview
 
 ## 🎯 Purpose
 
-This portfolio is both a **personal showcase** and an experiment in **AI-assisted web development**.
+This portfolio is both a **personal showcase** and an experiment in **AI-assisted web development**, demonstrating a workflow where:
 
-The project demonstrates a workflow where:
-
-**Human direction + Prompt Engineering + Generative AI + Frontend Development**
+> **Human direction + Prompt Engineering + Generative AI + Frontend Development**
 
 come together to transform an initial idea into a polished, interactive web experience.
 
@@ -242,11 +221,9 @@ come together to transform an initial idea into a polished, interactive web expe
 
 ## 🧠 Development Philosophy
 
-The project follows a simple principle:
-
 > **AI generates possibilities. Human direction turns them into a product.**
 
-AI tools were used as development and creative assistants, while the overall direction, requirements, iteration, and final decisions were driven through the development process.
+AI tools were used as development and creative assistants, while the overall direction, requirements, iteration, and final decisions were driven by me throughout the process.
 
 ---
 
@@ -262,12 +239,9 @@ AI tools were used as development and creative assistants, while the overall dir
 
 ## 👨‍💻 Author
 
-### Gaurav
-
-Student & Developer
+**Gaurav** — Student & Developer
 
 Interested in:
-
 - Software Development
 - Data Structures & Algorithms
 - Competitive Programming
@@ -278,7 +252,7 @@ Interested in:
 
 ## ⭐ Support
 
-If you find this project interesting, consider giving the repository a ⭐ on GitHub.
+If you find this project interesting, consider giving the repository a ⭐ on GitHub!
 
 ---
 
