@@ -2,12 +2,12 @@
 
 ```
 
-       ██████╗  █████╗ ██╗   ██╗██████╗  █████╗ ██╗   ██╗
-      ██╔════╝ ██╔══██╗██║   ██║██╔══██╗██╔══██╗██║   ██║
-      ██║  ███╗███████║██║   ██║██████╔╝███████║██║   ██║
-      ██║   ██║██╔══██║██║   ██║██╔══██╗██╔══██║╚██╗ ██╔╝
-     ╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║ ╚████╔╝
-      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝
+                ██████╗  █████╗ ██╗   ██╗██████╗  █████╗ ██╗   ██╗
+                ██╔════╝ ██╔══██╗██║   ██║██╔══██╗██╔══██╗██║   ██║
+                ██║  ███╗███████║██║   ██║██████╔╝███████║██║   ██║
+                ██║   ██║██╔══██║██║   ██║██╔══██╗██╔══██║╚██╗ ██╔╝
+               ╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║ ╚████╔╝
+                ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝
 
 ```
 
@@ -230,7 +230,7 @@ AI tools were used as development and creative assistants, while the overall dir
 ## 📸 Preview
 
 <p align="center">
-  <img src="./public/preview.png" alt="Portfolio Preview" width="900"/>
+  <img width="1907" height="1014" alt="image" src="https://github.com/user-attachments/assets/229f5e6a-daaf-4407-8831-14cf5d64117a" />
 </p>
 
 > If `preview.png` is not present in the repository, remove the image section above or replace it with your own screenshot.
