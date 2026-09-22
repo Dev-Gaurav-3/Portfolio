@@ -1,12 +1,12 @@
 import React from 'react';
-import { Sparkles, ExternalLink, Github, Compass, ListTodo, Gamepad2, ArrowUpRight } from 'lucide-react';
+import { Sparkles, ExternalLink, Github, Compass, ListTodo, Code2, ArrowUpRight } from 'lucide-react';
 import { projects } from '../data/portfolioData';
 
 export default function Projects() {
   const iconMap = {
+    'codeout': Code2,
     'stayscape': Compass,
-    'kanban-board': ListTodo,
-    'snake-game': Gamepad2
+    'kanban-board': ListTodo
   };
 
   return (
@@ -92,27 +92,40 @@ export default function Projects() {
                 </div>
 
                 {/* Direct Action Buttons: Live Site & GitHub Code */}
-                <div className="pt-6 mt-6 border-t border-[#1f2438] grid grid-cols-2 gap-3 z-10">
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-3 px-4 rounded-xl font-semibold text-xs sm:text-sm text-white bg-gradient-to-r from-[#ff6b00] to-[#ff8800] hover:from-[#ff8800] hover:to-[#ff4500] shadow-md shadow-[#ff6b0033] flex items-center justify-center gap-1.5 transition-all active:scale-95"
-                  >
-                    <span>Live Site</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                {project.liveUrl || project.githubUrl ? (
+                  <div className={`pt-6 mt-6 border-t border-[#1f2438] ${project.liveUrl && project.githubUrl ? 'grid grid-cols-2' : 'flex'} gap-3 z-10`}>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-3 px-4 rounded-xl font-semibold text-xs sm:text-sm text-white bg-gradient-to-r from-[#ff6b00] to-[#ff8800] hover:from-[#ff8800] hover:to-[#ff4500] shadow-md shadow-[#ff6b0033] flex items-center justify-center gap-1.5 transition-all active:scale-95 flex-1"
+                      >
+                        <span>{project.liveLabel || 'Live Site'}</span>
+                        <ArrowUpRight className="w-4 h-4" />
+                      </a>
+                    )}
 
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-3 px-4 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-[#07080e] border border-[#1f2438] hover:border-[#ff6b0044] hover:text-white hover:bg-[#141726] flex items-center justify-center gap-1.5 transition-all"
-                  >
-                    <Github className="w-4 h-4 text-[#ff8800]" />
-                    <span>Source Code</span>
-                  </a>
-                </div>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-3 px-4 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-[#07080e] border border-[#1f2438] hover:border-[#ff6b0044] hover:text-white hover:bg-[#141726] flex items-center justify-center gap-1.5 transition-all flex-1"
+                      >
+                        <Github className="w-4 h-4 text-[#ff8800]" />
+                        <span>Source Code</span>
+                      </a>
+                    )}
+                  </div>
+                ) : (
+                  <div className="pt-6 mt-6 border-t border-[#1f2438] flex items-center justify-center py-3 px-4 rounded-xl bg-[#07080e]/60 border border-[#1f2438] text-xs font-mono text-slate-400 z-10">
+                    <span className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#ff8800] animate-pulse"></span>
+                      Extension In Development
+                    </span>
+                  </div>
+                )}
 
               </div>
             );

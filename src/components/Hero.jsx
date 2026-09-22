@@ -104,7 +104,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-4 py-3.5 text-sm font-semibold rounded-xl text-[#ffa033] bg-[#ff6b0015] border border-[#ff6b0033] hover:bg-[#ff6b0025] transition-all duration-300"
               >
                 <Award className="w-4 h-4 text-[#ff8800]" />
-                <span>LeetCode (1670)</span>
+                <span>LeetCode (1790)</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-70" />
               </a>
             </div>
@@ -210,7 +210,7 @@ export default function Hero() {
               </div>
 
               <div className="absolute -bottom-4 -right-4 px-3.5 py-1.5 rounded-full bg-[#0d0f19] border border-[#ff6b0044] text-xs font-semibold text-[#ff8800] shadow-lg animate-float" style={{ animationDelay: '2s' }}>
-                🏆 LeetCode 1670 Max Rating
+                🏆 LeetCode 1790 Max Rating
               </div>
 
             </div>

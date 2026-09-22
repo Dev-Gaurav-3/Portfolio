@@ -4,7 +4,7 @@ export const personalDetails = {
   subtitles: [
     "Software Engineer",
     "Full-Stack Web Developer",
-    "Competitive Programmer (LeetCode 1670)",
+    "Competitive Programmer (LeetCode 1790)",
     "B.Tech Student @ IIITDM Jabalpur"
   ],
   bio: "Passionate Full-Stack Developer and B.Tech student at PDPM IIITDM Jabalpur. Experienced in building scalable full-stack web applications with Node.js, Express, React, and MongoDB, alongside a robust background in Data Structures, Algorithms, and Competitive Programming (500+ problems solved, Flipkart GRID 8.0 Semi-Finalist).",
@@ -21,13 +21,31 @@ export const personalDetails = {
 };
 
 export const keyMetrics = [
-  { id: 1, label: "LeetCode Contest Rating", value: 1670, suffix: "", icon: "Trophy", description: "Top percentile competitive programmer" },
+  { id: 1, label: "LeetCode Contest Rating", value: 1790, suffix: "", icon: "Trophy", description: "Top percentile competitive programmer" },
   { id: 2, label: "DSA Problems Solved", value: 500, suffix: "+", icon: "Code2", description: "Arrays, Trees, Graphs, DP & Greedy" },
   { id: 3, label: "Flipkart GRID 8.0", value: 3, suffix: "rd Round", icon: "Award", description: "Semi-Finalist in flagship SDE challenge" },
   { id: 4, label: "Codeforces Rating", value: 1270, suffix: " (Pupil)", icon: "Zap", description: "Active competitive programming rank" }
 ];
 
 export const projects = [
+  {
+    id: "codeout",
+    title: "CodeOut",
+    subtitle: "LeetCode & VS Code Workflow Extension",
+    category: "Developer Tool & Extension",
+    techStack: ["JavaScript", "VS Code API", "Chrome Extension", "LeetCode Integration", "Automation"],
+    description: "A developer tool that connects LeetCode with VS Code, allowing users to bring LeetCode problems, test cases, and language-specific code directly into VS Code to streamline the competitive programming workflow.",
+    highlights: [
+      "Connects LeetCode with VS Code to import problem statements, sample test cases, and starter code directly into the editor.",
+      "Streamlines the developer workflow between LeetCode and VS Code, minimizing contest-time context switching.",
+      "Engineered as a browser and VS Code extension architecture for seamless competitive programming integration."
+    ],
+    githubUrl: "https://github.com/Dev-Gaurav-3/CodeOut_VSCode",
+    liveUrl: "https://marketplace.visualstudio.com/items?itemName=gaurav-builds-003.codeout",
+    liveLabel: "Marketplace",
+    badge: "Developer Tool",
+    gradient: "from-orange-500/20 via-amber-500/10 to-transparent"
+  },
   {
     id: "stayscape",
     title: "StayScape",
@@ -62,23 +80,6 @@ export const projects = [
     liveUrl: "https://dev-gaurav-3.github.io/Kanban-Board/",
     badge: "Interactive App",
     gradient: "from-orange-500/20 via-rose-500/10 to-transparent"
-  },
-  {
-    id: "snake-game",
-    title: "Snake Game",
-    subtitle: "Classic Arcade Game with Custom Logic",
-    category: "JavaScript Game Dev",
-    techStack: ["HTML5 Canvas", "CSS3", "JavaScript", "Game Loop Architecture"],
-    description: "Classic Snake arcade game with smooth keyboard controls, score tracking system, collision detection algorithms, and responsive UI.",
-    highlights: [
-      "Implemented custom game loop logic, collision detection, dynamic food generation, and high score tracking.",
-      "Handled real-time keyboard inputs for smooth, stutter-free snake movement and direction queueing.",
-      "Designed interactive UI with responsive gameplay controls for desktop and mobile."
-    ],
-    githubUrl: "https://github.com/Dev-Gaurav-3/Snake-Game",
-    liveUrl: "https://dev-gaurav-3.github.io/Snake-Game/",
-    badge: "Arcade Game",
-    gradient: "from-orange-600/20 via-yellow-500/10 to-transparent"
   }
 ];
 
@@ -151,9 +152,9 @@ export const achievementsList = [
     icon: "Award"
   },
   {
-    title: "1670 Contest Rating on LeetCode",
+    title: "1790 Contest Rating on LeetCode",
     category: "Competitive Programming",
-    description: "Achieved a 1670 contest rating on LeetCode (@greedyGaur), demonstrating strong algorithmic problem-solving speed and accuracy.",
+    description: "Achieved a 1790 contest rating on LeetCode (@greedyGaur), demonstrating strong algorithmic problem-solving speed and accuracy.",
     badge: "Top Rating",
     year: "Active",
     icon: "Trophy"
