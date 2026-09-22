@@ -1,5 +1,5 @@
 <div align="center">
-
+<pre>
 ```
 
                  ██████╗  █████╗ ██╗   ██╗██████╗  █████╗ ██╗   ██╗
@@ -10,7 +10,7 @@
                 ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝
 
 ```
-
+</pre>
 # ✦ Portfolio
 
 *A modern personal developer portfolio built through an AI-assisted development workflow using **Google Antigravity, Google Flow, ChatGPT**, and prompt engineering.*
